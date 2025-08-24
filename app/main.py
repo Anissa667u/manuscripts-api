@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routes import manuscripts
+import app.routes.manuscript as manuscripts
 
-app = FastApi(title = "Manuscript API")
-app.include_router(manuscripts.app, prefix = "/manuscripts", tags = [manuscripts])
+app = FastAPI(title = "Manuscript API")
+app.include_router(manuscripts.router, prefix = "/manuscripts", tags = ["Manuscripts"])
