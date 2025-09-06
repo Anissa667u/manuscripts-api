@@ -8,7 +8,7 @@ from app.models.ms_chapter import MSchapterModel
 router = APIRouter()
 
 
-@router.post("/manuscript_chapters") #эндпоинт глав, дата публикаций генерируется автоматом в модели
+@router.post("/") #эндпоинт глав, дата публикаций генерируется автоматом в модели
 async def add_ms_chapter(data:MSAddChapter, session:SessionDep):
     new_chapter = MSchapterModel (
         chapter_title = data.chapter_title, 
@@ -26,7 +26,7 @@ async def add_ms_chapter(data:MSAddChapter, session:SessionDep):
         }
 
 
-@router.get("/manuscript_chapters")
+@router.get("/")
 async def get_ms_chapters(session:SessionDep):
     query = select(MSchapterModel)
     result = await session.execute(query)
