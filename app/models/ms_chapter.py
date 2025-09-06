@@ -9,7 +9,9 @@ class MSchapterModel(Base): #Здесь хранится БД с главами,
     chapter_id: Mapped[int] = mapped_column(primary_key=True)
     manuscript_id: Mapped[int] = mapped_column(ForeignKey("manuscripts.id")) #Связь с манускрипт 
     chapter_title: Mapped[str]  
-    date_of_publication: Mapped[datetime.datetime] = mapped_column(DateTime) 
+    date_of_publication: Mapped[datetime.datetime] = mapped_column(
+        DateTime, default=datetime.datetime.now(datetime.UTC)
+        ) 
     content: Mapped[str]
     
     manuscript = relationship("ManuscriptModel", back_populates="chapters")
