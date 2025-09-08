@@ -20,7 +20,7 @@ async def add_ms(data: MSAddSchema, session: SessionDep):
     new_manuscript = ManuscriptModel (
         title = data.title,
         author = data.author,
-        description = data.description,
+        description = data.description
     )
     session.add(new_manuscript)
     await session.commit()

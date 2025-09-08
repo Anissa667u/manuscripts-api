@@ -13,7 +13,7 @@ async def add_ms_chapter(data:MSAddChapter, session:SessionDep):
     new_chapter = MSchapterModel (
         chapter_title = data.chapter_title, 
         content = data.content,
-        manuscript_id = data.manuscript_id,
+        manuscript_id = data.manuscript_id
     )
     session.add(new_chapter)
     await session.commit()
